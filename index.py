@@ -1,9 +1,8 @@
 import requests
 from bs4 import BeautifulSoup as bs
 
-github_user = input('Input Github User: ')
-url = 'https://github.com/' +github_user
+url = 'https://barbend.com'
 r = requests.get(url)
 soup = bs(r.content, 'html.parser')
-profile_image = soup.find('img', {'alt' : 'Avatar'})['src']
+profile_image = soup.find('h2', class_='wp-block-post-title')
 print(profile_image)
